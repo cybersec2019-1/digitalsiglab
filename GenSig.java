@@ -23,6 +23,19 @@ class GenSig {
         KeyPair pair = keyGen.generateKeyPair();
         PrivateKey priv = pair.getPrivate();
         PublicKey pub = pair.getPublic();
+
+        /*
+        // Working with Encoded Key Bytes
+        FileInputStream keyfis = new FileInputStream(privkeyfile);
+        byte[] encKey = new byte[keyfis.available()];
+        keyfis.read(encKey);
+        keyfis.close();
+
+        PKCS8EncodedKeySpec privKeySpec = new PKCS8EncodedKeySpec(encKey);
+
+        KeyFactory keyFactory = KeyFactory.getInstance("DSA");
+        PrivateKey privKey = keyFactory.generatePrivate(privKeySpec);
+        */
         
         // Get a Signature Object
         Signature dsa = Signature.getInstance("SHA1withDSA", "SUN");
